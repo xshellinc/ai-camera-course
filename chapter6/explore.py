@@ -1,12 +1,12 @@
 import cv2
-import tensorflow as tf
+import tflite_runtime.interpreter as tflite
 import numpy as np
 import time
 import os
 
 
 # TF Liteランタイムの初期化
-interpreter = tf.lite.Interpreter(model_path='ssd.tflite')
+interpreter = tflite.Interpreter(model_path='ssd.tflite')
 interpreter.allocate_tensors()
 # モデル情報の取得
 input_details = interpreter.get_input_details()
